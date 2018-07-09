@@ -1,6 +1,5 @@
 package com.example.amazinglu.foreground_service_demo;
 
-import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -13,11 +12,19 @@ import android.widget.Toast;
 
 /**
  * foreground service must have a notification
+ *
+ * can not use intent service here => the IntentService will auto stop after finish the task
+ * which means it will stop after construct the notification, and when it stops, the
+ * notification will gone
  * */
 public class ForegroundService extends Service {
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
-    @TargetApi(Build.VERSION_CODES.O)
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent.getAction().equals(MainActivity.STARTFOREGROUND_ACTION)) {
@@ -85,11 +92,5 @@ public class ForegroundService extends Service {
         }
 
         return START_STICKY;
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 }

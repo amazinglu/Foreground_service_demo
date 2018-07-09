@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         startService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(MainActivity.this, ForegroundService.class);
+                Intent startIntent = new Intent(MainActivity.this,
+                        ForegroundServiceSeparateThread.class);
                 startIntent.setAction(STARTFOREGROUND_ACTION);
                 startService(startIntent);
             }
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         stopService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent stopIntent = new Intent(MainActivity.this, ForegroundService.class);
+                Intent stopIntent = new Intent(MainActivity.this,
+                        ForegroundServiceSeparateThread.class);
                 stopIntent.setAction(STOPFOREGROUND_ACTION);
                 startService(stopIntent);
             }
