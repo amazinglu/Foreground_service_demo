@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">foreground_service_demo</string>
+    <string name="start_service_button_text">Start Foreground Service</string>
+    <string name="stop_service_button_text">Stop Foreground Service</string>
+    <string name="notification_title">Foreground_service_demo</string>
+    <string name="music_palyer">fake music player</string>
+    <string name="channel_name">default_channel</string>
+    <string name="channel_description">my default channel</string>
+</resources>
