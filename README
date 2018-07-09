@@ -1,0 +1,5 @@
+ForgroundService:
+service that runs in UI thread
+
+ForegroundServiceSeparateThread:
+user Handle to run the service in a separated thread
