@@ -32,6 +32,9 @@ public class ForegroundServiceSeparateThread extends Service {
 
     @Override
     public void onCreate() {
+        /**
+         * create the thread and link the thread to the handler
+         * */
         HandlerThread thread = new HandlerThread("Service_thread",
                 Process.THREAD_PRIORITY_BACKGROUND);
         thread.start();
@@ -41,6 +44,9 @@ public class ForegroundServiceSeparateThread extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        /**
+         * send the message to handler to tell handle to do sth
+         * */
         Message msg = mServiceHandler.obtainMessage();
         Bundle args = new Bundle();
         args.putString(KEY_INTENT_ACTION, intent.getAction());

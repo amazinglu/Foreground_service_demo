@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
             createNotificationChannel();
         }
 
+        /**
+         * to use the service, remember to register it to manifest
+         * */
         startService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
